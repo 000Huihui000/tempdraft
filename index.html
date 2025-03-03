@@ -1,19 +1,168 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- ... (keep existing head content the same) ... -->
+    <title>Happy Birthday, Cups 🎀</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            background: linear-gradient(135deg, #ffb6c1, #ffd1dc);
+            color: #6d6875;
+            text-align: center; 
+            font-family: 'Comic Neue', cursive;
+            padding: 20px;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .slide { 
+            display: none;
+            margin: 30px auto;
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 25px rgba(255, 182, 193, 0.3);
+            animation: slideIn 0.5s ease-out forwards;
+        }
+
+        .slide.active {
+            display: block !important;
+        }
+
+        h1, h2 {
+            font-family: 'Dancing Script', cursive;
+            margin: 0 0 20px;
+            color: #ff6b8d;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 3px solid #ff9eb5;
+        }
+
+        button {
+            background: #ff6b8d;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 15px 0;
+            transition: transform 0.2s;
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        .music-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #ff6b8d;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .heart {
+            position: fixed;
+            font-size: 24px;
+            pointer-events: none;
+            animation: heartFloat 1.2s ease-out forwards;
+            z-index: 999;
+        }
+
+        @keyframes heartFloat {
+            0% {
+                transform: translate(-50%, -50%) scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--tx), var(--ty)) scale(2);
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- ... (keep existing body content the same up to slide6) ... -->
+    <div class="music-btn" onclick="toggleMusic()">🎵</div>
 
+    <div class="slide active" id="slide1">
+        <h1>🎀 Happy Birthday, Cups! 🎀</h1>
+        <p>You've officially scammed me into being your biggest fan 🌸<br>Let's revisit the evidence...</p>
+        <button onclick="nextSlide(event)">🎉 Start the Case →</button>
+    </div>
+
+    <div class="slide" id="slide2">
+        <h2>🌸 Exhibit A</h2>
+        <img src="https://i.ibb.co/27kbp6Gz/photo1.jpg" alt="Café Balcony">
+        <p>Where sunlight turned you into a Renaissance painting...<br>and you hid behind your hands 🌟</p>
+        <button onclick="nextSlide(event)">Next Clue →</button>
+    </div>
+
+    <div class="slide" id="slide3">
+        <h2>📖 Exhibit B</h2>
+        <img src="https://i.ibb.co/23JQW5V9/photo2.jpg" alt="Dark Romance Book">
+        <p>The moment you handed me your favorite book<br>like a coded message 🔍 (Still decoding it!)</p>
+        <button onclick="nextSlide(event)">Next Clue →</button>
+    </div>
+
+    <div class="slide" id="slide4">
+        <h2>🎧 Exhibit C</h2>
+        <audio controls>
+            <source src="https://media.vocaroo.com/mp3/150YlX7HGHzf" type="audio/mpeg">
+        </audio>
+        <p>Proof you're secretly a rom-com villain 😈<br>And I'm here for it!</p>
+        <button onclick="nextSlide(event)">💖 Reveal the Verdict →</button>
+    </div>
+    <!-- INSERT THIS NEW SLIDE AFTER SLIDE4 (BEFORE VERDICT) -->
+<div class="slide" id="slide5">
+    <h2>🎵 Exhibit D: The Viral Hit</h2>
+    <audio controls>
+        <source src="https://media.vocaroo.com/mp3/14tcjj0109Dm" type="audio/mpeg">
+    </audio>
+    <p>That ABCDEFG remix? Certified platinum! 🏆</p>
+    <div style="text-align: left; margin: 20px 0;">
+        <div>🔥 Chart Performance:</div>
+        <ul style="list-style-type: '🎶 ';">
+            <li>27+ daily mental replays</li>
+            <li>#1 on Silly Billboard Charts</li>
+            <li>Permanent head residency</li>
+        </ul>
+    </div>
+    <p>"The 'tana na na' outro? Iconic." - Music Critics</p>
+    <button onclick="nextSlide(event)">💿 Next Track →</button>
+</div>
     <div class="slide" id="slide6">
         <h2>💞 Verdict 🔍</h2>
         <p>Guilty of being the most mesmerizing person I know<br>Sentence: Eternal bike rides and food (your pick) 🚴♀️❤️</p>
         <p style="font-size: 24px; margin-top: 30px;">🎂 Happiest 20th! 🎂</p>
-        <button onclick="nextSlide(event)">🎤 Hear the Outro →</button>
     </div>
 
-    <!-- New Outro Slide -->
+    <audio id="bgMusic" loop>
+        <source src="https://media.vocaroo.com/mp3/11UkIpEwjOZB" type="audio/mpeg">
+    </audio>
     <div class="slide" id="slide7">
         <h2>🎤 The Legendary Outro</h2>
         <audio controls autoplay>
@@ -26,10 +175,45 @@
     <audio id="bgMusic" loop>
         <source src="https://media.vocaroo.com/mp3/11UkIpEwjOZB" type="audio/mpeg">
     </audio>
-
     <script>
-        // ... (keep existing script the same until end) ...
+        let currentSlide = 1;
+        const bgMusic = document.getElementById('bgMusic');
 
+        function toggleMusic() {
+            bgMusic[bgMusic.paused ? 'play' : 'pause']();
+            document.querySelector('.music-btn').textContent = 
+                bgMusic.paused ? '🔇' : '🎵';
+        }
+
+        document.addEventListener('click', () => {
+            bgMusic.volume = 0.3;
+            bgMusic.play().catch(() => {});
+        }, { once: true });
+
+        function nextSlide(event) {
+            const button = event.target;
+            const rect = button.getBoundingClientRect();
+            
+            // Create hearts
+            for(let i = 0; i < 30; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = '💖';
+                heart.style.left = `${rect.left + rect.width/2}px`;
+                heart.style.top = `${rect.top + rect.height/2}px`;
+                heart.style.setProperty('--tx', `${Math.random() * 200 - 100}%`);
+                heart.style.setProperty('--ty', `${Math.random() * 200 - 100}%`);
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 1200);
+            }
+
+            // Transition slides
+            document.querySelector('.active').classList.remove('active');
+            currentSlide++;
+            const nextSlideElem = document.getElementById(`slide${currentSlide}`);
+            nextSlideElem.classList.add('active');
+            nextSlideElem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
         function replay() {
             document.querySelector('.active').classList.remove('active');
             currentSlide = 1;
