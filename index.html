@@ -1,139 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Happy Birthday, Cups 🎀</title>
-    <!-- Add cute fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body { 
-            background: linear-gradient(135deg, #ffb6c1, #ffd1dc);
-            color: #6d6875;
-            text-align: center; 
-            font-family: 'Comic Neue', cursive;
-            padding: 20px;
-            min-height: 100vh;
-        }
-        h1, h2 {
-            font-family: 'Dancing Script', cursive;
-            text-shadow: 2px 2px 4px rgba(255, 192, 203, 0.5);
-        }
-        .slide { 
-            display: none; 
-            margin: 50px auto; 
-            max-width: 600px;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 0 25px rgba(255, 182, 193, 0.3);
-            animation: slideIn 0.8s ease-out;
-        }
-        img { 
-            width: 100%; 
-            border-radius: 15px; 
-            margin: 20px 0;
-            border: 3px solid #ff9eb5;
-            transition: transform 0.3s ease;
-        }
-        img:hover {
-            transform: scale(1.02);
-        }
-        button { 
-            background: #ff85a2; 
-            color: white; 
-            border: none; 
-            padding: 15px 30px; 
-            border-radius: 25px; 
-            cursor: pointer; 
-            font-size: 16px; 
-            transition: all 0.3s ease;
-            margin: 15px 0;
-        }
-        button:hover {
-            background: #ff6b8d;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(255, 107, 141, 0.3);
-        }
-        #audioPlayer { 
-            margin: 20px 0; 
-            filter: drop-shadow(0 0 8px #ff9eb5);
-        }
-        .active { 
-            display: block; 
-        }
-        /* Floating hearts animation */
-        .hearts {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-        .heart {
-            position: absolute;
-            color: #ff6b8d;
-            animation: float 6s infinite linear;
-            opacity: 0.6;
-            font-size: 24px;
-        }
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes float {
-            0% { transform: translateY(100vh) translateX(0); }
-            100% { transform: translateY(-100vh) translateX(100px); }
-        }
-    </style>
+    <!-- ... (keep existing head content the same) ... -->
 </head>
 <body>
-    <!-- Floating hearts -->
-    <div class="hearts">
-        <div class="heart" style="left: 10%; animation-delay: 1s">💖</div>
-        <div class="heart" style="left: 30%; animation-delay: 3s">🌸</div>
-        <div class="heart" style="left: 70%; animation-delay: 2s">🎀</div>
-    </div>
+    <!-- ... (keep existing body content the same up to slide6) ... -->
 
-    <!-- Your existing content with emojis -->
-    <div class="slide active" id="slide1">
-        <h1>🎀 Happy Birthday, Cups! 🎀</h1>
-        <p>You've officially scammed me into being your biggest fan 🌸<br>Let's revisit the evidence...</p>
-        <button onclick="nextSlide()">🎉 Start the Case →</button>
-    </div>
-
-    <div class="slide" id="slide2">
-        <h2>🌸 Exhibit A</h2>
-        <img src="https://i.ibb.co/27kbp6Gz/photo1.jpg" alt="Café Balcony">
-        <p>Where sunlight turned you into a Renaissance painting...<br>and you hid behind your hands 🌟</p>
-        <button onclick="nextSlide()">Next Clue →</button>
-    </div>
-
-    <div class="slide" id="slide3">
-        <h2>📖 Exhibit B</h2>
-        <img src="https://i.ibb.co/23JQW5V9/photo2.jpg" alt="Dark Romance Book">
-        <p>The moment you handed me your favorite book<br>like a coded message 🔍 (Still decoding it!)</p>
-        <button onclick="nextSlide()">Next Clue →</button>
-    </div>
-
-    <div class="slide" id="slide4">
-        <h2>🎧 Exhibit C</h2>
-        <audio id="audioPlayer" controls>
-            <source src="https://media.vocaroo.com/mp3/150YlX7HGHzf" type="audio/mpeg">
-        </audio>
-        <p>Proof you're secretly a rom-com villain 😈<br>And I'm here for it!</p>
-        <button onclick="nextSlide()">💖 Reveal the Verdict →</button>
-    </div>
-
-    <div class="slide" id="slide5">
+    <div class="slide" id="slide6">
         <h2>💞 Verdict 🔍</h2>
         <p>Guilty of being the most mesmerizing person I know<br>Sentence: Eternal bike rides and food (your pick) 🚴♀️❤️</p>
-        <p style="font-size: 24px; margin-top: 30px;">🎂 Happiest 19th! 🎂</p>
+        <p style="font-size: 24px; margin-top: 30px;">🎂 Happiest 20th! 🎂</p>
+        <button onclick="nextSlide(event)">🎤 Hear the Outro →</button>
     </div>
 
+    <!-- New Outro Slide -->
+    <div class="slide" id="slide7">
+        <h2>🎤 The Legendary Outro</h2>
+        <audio controls autoplay>
+            <source src="https://media.vocaroo.com/mp3/1a8xs6ZBfQE2" type="audio/mpeg">
+        </audio>
+        <p>Yelling "BYE" since 2023... and stealing hearts! 💘</p>
+        <button onclick="replay()">🔄 Replay Magic</button>
+    </div>
+
+    <audio id="bgMusic" loop>
+        <source src="https://media.vocaroo.com/mp3/11UkIpEwjOZB" type="audio/mpeg">
+    </audio>
+
     <script>
-        let currentSlide = 1;
-        function nextSlide() {
+        // ... (keep existing script the same until end) ...
+
+        function replay() {
             document.querySelector('.active').classList.remove('active');
-            currentSlide++;
-            document.getElementById(`slide${currentSlide}`).classList.add('active');
+            currentSlide = 1;
+            document.getElementById('slide1').classList.add('active');
+            document.getElementById('slide1').scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
     </script>
 </body>
